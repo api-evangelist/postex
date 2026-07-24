@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: PostEx Merchant Order Integration Orders Reference API
+  description: PostEx is a Pakistani e-commerce logistics and courier platform offering cash-on-delivery fulfilment with instant upfront payments. This OpenAPI definition describes PostEx's merchant Order Integration API, used by merchants and order-management systems to book shipments, look up operational cities, retrieve their registered pickup addresses, track parcels, and list orders not yet booked. Every operation authenticates with a merchant API token supplied in the `token` request header (issued from the PostEx merchant dashboard). This definition was constructed by live-probing the production host https://api.postex.pk — each path below was confirmed to exist (returns HTTP 400 "Missing request header 'token'" when called without credentials rather than 404). Request and response bodies are intentionally left as generic objects where they could not be verified without an authenticated token, to avoid fabricating field-level schema.
+  version: '3'
+  x-api-evangelist-note: Servers, paths, auth model, and error envelope verified against the live api.postex.pk host on 2026-07-20. No provider-published OpenAPI/Swagger was found (/v3/api-docs, /swagger-ui.html both 404).
+  contact:
+    name: PostEx Support
+    url: https://postex.pk
+    email: info@postex.pk
+servers:
+- url: https://api.postex.pk/services/integration/api/order
+  description: PostEx merchant Order Integration API (production)
+security:
+- merchantToken: []
+tags:
+- name: Reference
+  description: Operational cities and merchant address reference data
+paths:
+  /v1/get-merchant-address:
+    get:
+      operationId: getMerchantAddress
+      tags:
+      - Reference
+      summary: Get merchant pickup addresses
+      description: Return the pickup / return addresses registered for the authenticated merchant, including each address code used when creating orders. Requires the merchant `token` header.
+      responses:
+        '200':
+          description: Merchant registered addresses
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /v2/get-operational-city:
+    get:
+      operationId: getOperationalCityV2
+      tags:
+      - Reference
+      summary: List operational cities (v2)
+      description: List the cities PostEx operates in, used to populate the destination city when creating an order (latest version). Requires the merchant `token` header.
+      responses:
+        '200':
+          description: List of operational cities
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /v1/get-operational-city:
+    get:
+      operationId: getOperationalCityV1
+      tags:
+      - Reference
+      summary: List operational cities (v1)
+      description: List the cities PostEx operates in (original version). Requires the merchant `token` header.
+      responses:
+        '200':
+          description: List of operational cities
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  responses:
+    BadRequest:
+      description: Bad request (e.g. missing `token` header or invalid parameters)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      description: PostEx / Spring Boot error envelope returned on failed requests (Content-Type application/json). Not RFC 9457 problem+json.
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: 2026-07-21T07:35:03.040+0500
+        status:
+          type: integer
+          example: 400
+        error:
+          type: string
+          example: Bad Request
+        message:
+          type: string
+          example: Missing request header 'token' for method parameter of type String
+        path:
+          type: string
+          example: /api/order/v1/get-merchant-address
+  securitySchemes:
+    merchantToken:
+      type: apiKey
+      in: header
+      name: token
+      description: Merchant API token issued from the PostEx merchant dashboard, supplied in the `token` request header on every call.

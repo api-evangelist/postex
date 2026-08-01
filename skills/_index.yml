@@ -1,0 +1,7 @@
+generated: '2026-07-20'
+method: generated
+skills:
+  - file: postex-book-and-track-order.md
+    name: Book and track a PostEx shipment
+    api: openapi/postex-order-openapi.yml
+    operations: [getMerchantAddress, getOperationalCityV2, createOrder, trackOrder, getUnbookedOrders]

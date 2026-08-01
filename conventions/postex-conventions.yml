@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  Derived from openapi/postex-order-openapi.yml and live-observed behaviour of
+  https://api.postex.pk (auth header, error envelope, CORS headers, URI-path
+  versioning). No cross-cutting conventions doc is published by PostEx.
+description: >-
+  Cross-cutting request/response semantics for the PostEx merchant Order
+  Integration API: token-header authentication, JSON over HTTPS, URI-path
+  version segments (v1/v2/v3), the Spring Boot error envelope, and the absence
+  of a documented idempotency or pagination contract.
+base_url: https://api.postex.pk/services/integration/api/order
+api_style: REST over HTTPS, JSON request and response bodies
+authentication:
+  scheme: apiKey in the `token` request header
+  ref: authentication/postex-authentication.yml
+versioning:
+  scheme: uri-path
+  detail: >-
+    Each operation carries a version segment (/v1, /v2, /v3) directly in the
+    path. Multiple versions of create-order and get-operational-city coexist on
+    the live host; v3 is the current create-order.
+  ref: lifecycle/postex-lifecycle.yml
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency-key header or parameter is documented or advertised by the
+    probed endpoints. Order de-duplication is handled server-side via the
+    merchant order reference number carried in the create-order body.
+pagination:
+  documented: false
+  detail: >-
+    No pagination parameters or response envelope were confirmed on the list
+    endpoints (get-unbooked-orders, get-operational-city) without an
+    authenticated token.
+error_envelope:
+  format: spring-boot-json
+  content_type: application/json
+  ref: errors/postex-error-codes.yml
+rate_limiting:
+  documented: false
+  detail: No rate-limit response headers were observed on the probed endpoints.
+cors:
+  access_control_allow_origin: "*"
+  access_control_allow_methods: [PUT, GET, POST, OPTIONS, DELETE, PATCH]
+  observed_allow_headers:
+    - token
+    - authorization
+    - X-Api-Key
+    - X-Device-Id
+    - X-LANG
+    - Content-Type
+    - skip
+transport:
+  cdn: "Cloudflare (server: cloudflare; cf-ray / cf-cache-status: DYNAMIC observed)"
+  http_version: HTTP/2

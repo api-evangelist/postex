@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/postex-order-openapi.yml
+description: >-
+  Entity-relationship model for the PostEx merchant Order Integration API,
+  derived from the operation surface (no field-level response schemas were
+  available without an authenticated token, so relationships are inferred from
+  the operations and their path parameters).
+entities:
+  - name: Merchant
+    description: The authenticated account (identified by its `token`).
+    key: token
+  - name: Order
+    description: A shipment booked with PostEx.
+    key: trackingNumber
+    operations: [createOrder, createOrderV2, createOrderV1, trackOrder, getUnbookedOrders]
+  - name: MerchantAddress
+    description: A pickup/return address registered for the merchant, referenced by an address code when creating orders.
+    operations: [getMerchantAddress]
+  - name: OperationalCity
+    description: A city PostEx delivers to, used as the destination city on an order.
+    operations: [getOperationalCityV2, getOperationalCityV1]
+relationships:
+  - from: Order
+    to: Merchant
+    type: belongs_to
+    via: token
+  - from: Order
+    to: MerchantAddress
+    type: belongs_to
+    via: pickupAddressCode
+  - from: Order
+    to: OperationalCity
+    type: belongs_to
+    via: cityName
+  - from: Merchant
+    to: MerchantAddress
+    type: has_many

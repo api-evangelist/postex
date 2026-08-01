@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  Live probe of https://api.postex.pk merchant Order Integration API. Every
+  endpoint returns HTTP 400 "Missing request header 'token'" when called
+  without credentials, confirming an apiKey-in-header auth model. The CORS
+  Access-Control-Allow-Headers on the host also advertise: X-Api-Key,
+  authorization, skip, token, X-Device-Id, X-LANG.
+description: >-
+  PostEx's merchant Order Integration API authenticates every request with a
+  merchant API token issued from the PostEx merchant dashboard, supplied in the
+  `token` request header. No OAuth or OpenID Connect surface was found.
+summary:
+  types:
+    - apiKey
+  api_key_in:
+    - header
+  oauth2_flows: []
+schemes:
+  - name: merchantToken
+    type: apiKey
+    in: header
+    parameter_name: token
+    description: >-
+      Merchant API token issued from the PostEx merchant dashboard, sent in the
+      `token` request header on every Order Integration API call.
+    sources:
+      - openapi/postex-order-openapi.yml
+notes: >-
+  The host's CORS policy additionally allows the headers X-Api-Key,
+  authorization, and skip, but only the `token` header is required and enforced
+  by the Order Integration API endpoints probed.

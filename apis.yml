@@ -1,7 +1,16 @@
 aid: postex
 name: PostEx
-description: PostEx is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  PostEx is a Pakistani e-commerce logistics, courier, and fintech platform that
+  provides cash-on-delivery parcel fulfilment with instant upfront payments to
+  online merchants, alongside a business suite for expense management, working-
+  capital financing, and the XPay payment gateway. Merchants and order-
+  management systems integrate with PostEx through its merchant Order
+  Integration API (https://api.postex.pk) to book shipments, look up operational
+  cities and pickup addresses, track parcels, and reconcile orders. This profile
+  was enriched by API Evangelist by live-probing the production API host, which
+  confirmed a real merchant integration surface authenticated with a token
+  request header. PostEx is backed by 500 Global.
 url: https://raw.githubusercontent.com/api-evangelist/postex/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +18,100 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://postex.pk/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Logistics
+- Courier
+- Shipping
+- E-commerce
+- Fulfillment
+- Cash on Delivery
+- Payments
+- Fintech
+- Pakistan
+apis:
+- aid: postex:postex-orders-api
+  name: PostEx Orders API
+  description: Booking, tracking, and listing shipment orders
+  humanURL: https://postex.pk
+  baseURL: https://api.postex.pk/services/integration/api/order
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/postex-orders-api-openapi.yml
+  - type: Authentication
+    url: authentication/postex-authentication.yml
+  - type: ErrorCatalog
+    url: errors/postex-error-codes.yml
+  - type: Conventions
+    url: conventions/postex-conventions.yml
+  - type: Conformance
+    url: conformance/postex-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/postex-lifecycle.yml
+  - type: DataModel
+    url: data-model/postex-data-model.yml
+- aid: postex:postex-reference-api
+  name: PostEx Reference API
+  description: Operational cities and merchant address reference data
+  humanURL: https://postex.pk
+  baseURL: https://api.postex.pk/services/integration/api/order
+  tags:
+  - Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/postex-reference-api-openapi.yml
+  - type: Authentication
+    url: authentication/postex-authentication.yml
+  - type: ErrorCatalog
+    url: errors/postex-error-codes.yml
+  - type: Conventions
+    url: conventions/postex-conventions.yml
+  - type: Conformance
+    url: conformance/postex-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/postex-lifecycle.yml
+  - type: DataModel
+    url: data-model/postex-data-model.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/postex-domain-security.yml
 - type: Website
   url: https://postex.pk
+- type: MCPServer
+  url: mcp/postex-mcp.yml
+- type: LLMsTxt
+  url: llms/postex-llms.txt
+- type: WellKnown
+  url: well-known/postex-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/postex-authentication.yml

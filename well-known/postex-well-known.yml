@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+description: >-
+  Result of probing the /.well-known/ discovery surface on PostEx's website and
+  API hosts (2026-07-20). No well-known documents are published; all probed
+  paths returned HTTP 404. Recorded as valid negative-result data.
+hosts:
+  - host: https://api.postex.pk
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://postex.pk
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://xpay.postexglobal.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404

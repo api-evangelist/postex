@@ -1,0 +1,48 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  Live-observed error responses from https://api.postex.pk merchant Order
+  Integration API (2026-07-20). Bodies captured verbatim from unauthenticated
+  probes of GET /api/order/v1/get-merchant-address and
+  GET /api/order/v1/track-order/{trackingNumber}.
+format: spring-boot-json
+description: >-
+  PostEx returns a Spring Boot / Spring MVC JSON error envelope (NOT RFC 9457
+  problem+json). The envelope carries timestamp, status, error, message, and
+  path; in non-production/verbose responses a Java `trace` stack is also
+  included. Errors are served with Content-Type application/json.
+envelope:
+  content_type: application/json
+  fields:
+    - name: timestamp
+      description: ISO-8601 timestamp of the error (server timezone +0500 / PKT).
+    - name: status
+      description: HTTP status code (integer), mirrors the HTTP response status.
+    - name: error
+      description: Reason phrase (e.g. "Bad Request").
+    - name: message
+      description: Human-readable detail of what went wrong.
+    - name: path
+      description: The request path that produced the error.
+    - name: trace
+      description: >-
+        Java exception stack trace. Present on the live host's verbose error
+        responses; typically suppressed in hardened production configs.
+problems:
+  - status: 400
+    error: Bad Request
+    message: "Missing request header 'token' for method parameter of type String"
+    cause: >-
+      The required `token` authentication header was not supplied on the
+      request.
+    remediation: >-
+      Send the merchant API token (from the PostEx merchant dashboard) in the
+      `token` request header.
+    observed_on:
+      - openapi/postex-order-openapi.yml#getMerchantAddress
+      - openapi/postex-order-openapi.yml#trackOrder
+  - status: 404
+    error: Not Found
+    message: No handler found for the requested path/method.
+    cause: The path or HTTP method does not map to a PostEx Order Integration operation.
+    remediation: Verify the path and HTTP method against the documented operation set.

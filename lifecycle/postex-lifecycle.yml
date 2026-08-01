@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  Derived from openapi/postex-order-openapi.yml and live probe of
+  https://api.postex.pk. No published versioning, deprecation, SLA, or status
+  page was found for the Order Integration API.
+description: >-
+  Versioning and lifecycle posture for the PostEx merchant Order Integration
+  API. Versions are expressed as URI-path segments; multiple versions coexist
+  on the live host. No deprecation policy, Sunset-header support, SLA, or public
+  status page was discovered.
+versioning:
+  scheme: uri-path
+  current: v3
+  coexisting:
+    - operation: create-order
+      versions: [v1, v2, v3]
+    - operation: get-operational-city
+      versions: [v1, v2]
+  detail: >-
+    v3/create-order is the current create-order; v1 and v2 remain reachable on
+    the live host (confirmed HTTP 400 auth-required rather than 404).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

@@ -1,0 +1,16 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for PostEx Order Integration API
+  version: 1.0.0
+extends: openapi/postex-order-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 2
+      x-apievangelist-notes: >-
+        Constructed from live-probing api.postex.pk; provider publishes no
+        OpenAPI/Swagger. Auth (token header) and error envelope verified.
+  - target: $.tags
+    update:
+      - name: Logistics
+        description: E-commerce courier and cash-on-delivery fulfilment operations

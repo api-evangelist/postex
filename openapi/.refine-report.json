@@ -1,0 +1,16 @@
+{
+  "provider": "postex",
+  "sources": [
+    "postex-orders-api-openapi.yml",
+    "postex-reference-api-openapi.yml"
+  ],
+  "outputs": [
+    "postex-orders-api-openapi.yml",
+    "postex-reference-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

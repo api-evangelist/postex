@@ -1,0 +1,409 @@
+{
+  "item": [
+    {
+      "id": "181399b4-99de-4586-a365-b8042a33b57e",
+      "name": "Reference",
+      "description": {
+        "content": "Operational cities and merchant address reference data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ad2d323-26db-4d54-b4a9-0afea82ba8cf",
+          "name": "Get merchant pickup addresses",
+          "request": {
+            "name": "Get merchant pickup addresses",
+            "description": {
+              "content": "Return the pickup / return addresses registered for the authenticated merchant, including each address code used when creating orders. Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "get-merchant-address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "473309b0-720c-4208-8925-507290811c63",
+              "name": "Merchant registered addresses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-merchant-address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d5b8c5e-2241-44d6-aed1-a64ae45b28f0",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-merchant-address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecd1fd9d-ea6d-450b-b5a5-665000dbb89c",
+          "name": "List operational cities (v2)",
+          "request": {
+            "name": "List operational cities (v2)",
+            "description": {
+              "content": "List the cities PostEx operates in, used to populate the destination city when creating an order (latest version). Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "get-operational-city"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09a46e71-82a3-4ee2-b9e6-7579b43c0c7e",
+              "name": "List of operational cities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "get-operational-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9d13ddf-0fa4-40c9-b8b6-b273068c5d04",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "get-operational-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "606b39ee-58d0-4f23-857f-2add1f14863e",
+          "name": "List operational cities (v1)",
+          "request": {
+            "name": "List operational cities (v1)",
+            "description": {
+              "content": "List the cities PostEx operates in (original version). Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "get-operational-city"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d655e84-c541-410c-b676-da26a375376c",
+              "name": "List of operational cities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-operational-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b1068443-244d-4282-951d-2bfc446c6f5f",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-operational-city"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.postex.pk/services/integration/api/order",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fca57678-76ab-4558-b7a8-0f6fe6c9710e",
+    "name": "PostEx Merchant Order Integration Orders Reference API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PostEx is a Pakistani e-commerce logistics and courier platform offering cash-on-delivery fulfilment with instant upfront payments. This OpenAPI definition describes PostEx's merchant Order Integration API, used by merchants and order-management systems to book shipments, look up operational cities, retrieve their registered pickup addresses, track parcels, and list orders not yet booked. Every operation authenticates with a merchant API token supplied in the `token` request header (issued from the PostEx merchant dashboard). This definition was constructed by live-probing the production host https://api.postex.pk — each path below was confirmed to exist (returns HTTP 400 \"Missing request header 'token'\" when called without credentials rather than 404). Request and response bodies are intentionally left as generic objects where they could not be verified without an authenticated token, to avoid fabricating field-level schema.\n\nContact Support:\n Name: PostEx Support\n Email: info@postex.pk",
+      "type": "text/plain"
+    }
+  }
+}

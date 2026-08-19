@@ -1,0 +1,763 @@
+{
+  "item": [
+    {
+      "id": "9df28860-5f8b-4233-9ade-86b65794d9ae",
+      "name": "Orders",
+      "description": {
+        "content": "Booking, tracking, and listing shipment orders",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1a74c721-b32b-4738-a0f6-34a63f1f85cf",
+          "name": "Create an order (v3)",
+          "request": {
+            "name": "Create an order (v3)",
+            "description": {
+              "content": "Book a new shipment order with PostEx (latest version). Requires the merchant `token` header. Request body carries the consignee, pickup address code, order reference, item count, and COD amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "create-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0163f303-e9dc-4ecb-b81b-08e269480fdf",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "922c75b5-ff8e-4899-9768-c1fe9cfdd1ed",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bee5aa0-c266-43b1-aaae-dc2e9291327b",
+          "name": "Create an order (v2)",
+          "request": {
+            "name": "Create an order (v2)",
+            "description": {
+              "content": "Book a new shipment order (prior version). Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "create-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6daad6f3-767e-4bec-8769-56ae0fabdbda",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52124eff-71b0-4b5f-860e-894fbae249e1",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5cb17b6-48db-4afc-9244-292adc1c9fa2",
+          "name": "Create an order (v1)",
+          "request": {
+            "name": "Create an order (v1)",
+            "description": {
+              "content": "Book a new shipment order (original version). Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "create-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f72dcc27-1a69-4de0-b52a-32ef9cb62604",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e3b761b-721f-47f7-a9e0-084f92e98f41",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "create-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e894602-608b-49e1-9a91-d51b36ac0ad3",
+          "name": "Track an order",
+          "request": {
+            "name": "Track an order",
+            "description": {
+              "content": "Retrieve the current status and tracking history of a shipment by its PostEx tracking number. Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "track-order",
+                ":trackingNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trackingNumber",
+                  "description": "(Required) PostEx tracking number of the order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3352f1f7-d1c5-436c-88d3-82b3ec33b4fa",
+              "name": "Order tracking detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "track-order",
+                    ":trackingNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingNumber",
+                      "description": "(Required) PostEx tracking number of the order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97b50dd4-675e-4d3b-9d79-9092cb9ba177",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "track-order",
+                    ":trackingNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingNumber",
+                      "description": "(Required) PostEx tracking number of the order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54dec84b-ce2b-4824-a3ae-011736321e21",
+          "name": "List unbooked orders",
+          "request": {
+            "name": "List unbooked orders",
+            "description": {
+              "content": "List the merchant's orders that have been created but not yet booked into a load sheet. Requires the merchant `token` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "get-unbooked-orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e32b1f84-d066-4536-8921-91af997532c1",
+              "name": "List of unbooked orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-unbooked-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95b2f441-8705-4ae5-a90c-9c221e4629bb",
+              "name": "Bad request (e.g. missing `token` header or invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-unbooked-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-07-21T07:35:03.040+0500\",\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing request header 'token' for method parameter of type String\",\n  \"path\": \"/api/order/v1/get-merchant-address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.postex.pk/services/integration/api/order",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "50d4544c-11e3-4066-a62d-4ced60e8ae69",
+    "name": "PostEx Merchant Order Integration Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PostEx is a Pakistani e-commerce logistics and courier platform offering cash-on-delivery fulfilment with instant upfront payments. This OpenAPI definition describes PostEx's merchant Order Integration API, used by merchants and order-management systems to book shipments, look up operational cities, retrieve their registered pickup addresses, track parcels, and list orders not yet booked. Every operation authenticates with a merchant API token supplied in the `token` request header (issued from the PostEx merchant dashboard). This definition was constructed by live-probing the production host https://api.postex.pk — each path below was confirmed to exist (returns HTTP 400 \"Missing request header 'token'\" when called without credentials rather than 404). Request and response bodies are intentionally left as generic objects where they could not be verified without an authenticated token, to avoid fabricating field-level schema.\n\nContact Support:\n Name: PostEx Support\n Email: info@postex.pk",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PostEx Merchant Order Integration Orders Reference API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get merchant pickup addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.postex.pk/services/integration/api/order/v1/get-merchant-address"
+          },
+          "docs": "Return the pickup / return addresses registered for the authenticated merchant, including each address code used when creating orders. Requires the merchant `token` header."
+        },
+        {
+          "info": {
+            "name": "List operational cities (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.postex.pk/services/integration/api/order/v2/get-operational-city"
+          },
+          "docs": "List the cities PostEx operates in, used to populate the destination city when creating an order (latest version). Requires the merchant `token` header."
+        },
+        {
+          "info": {
+            "name": "List operational cities (v1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.postex.pk/services/integration/api/order/v1/get-operational-city"
+          },
+          "docs": "List the cities PostEx operates in (original version). Requires the merchant `token` header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

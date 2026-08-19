@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PostEx Merchant Order Integration Orders API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an order (v3)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.postex.pk/services/integration/api/order/v3/create-order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Book a new shipment order with PostEx (latest version). Requires the merchant `token` header. Request body carries the consignee, pickup address code, order reference, item count, and COD amount."
+        },
+        {
+          "info": {
+            "name": "Create an order (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.postex.pk/services/integration/api/order/v2/create-order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Book a new shipment order (prior version). Requires the merchant `token` header."
+        },
+        {
+          "info": {
+            "name": "Create an order (v1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.postex.pk/services/integration/api/order/v1/create-order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Book a new shipment order (original version). Requires the merchant `token` header."
+        },
+        {
+          "info": {
+            "name": "Track an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.postex.pk/services/integration/api/order/v1/track-order/:trackingNumber",
+            "params": [
+              {
+                "name": "trackingNumber",
+                "value": "",
+                "type": "path",
+                "description": "PostEx tracking number of the order."
+              }
+            ]
+          },
+          "docs": "Retrieve the current status and tracking history of a shipment by its PostEx tracking number. Requires the merchant `token` header."
+        },
+        {
+          "info": {
+            "name": "List unbooked orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.postex.pk/services/integration/api/order/v1/get-unbooked-orders"
+          },
+          "docs": "List the merchant's orders that have been created but not yet booked into a load sheet. Requires the merchant `token` header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,27 +2,31 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/postex-order-openapi.yml
-description: >-
-  Candidate MCP server for the PostEx merchant Order Integration API. No
-  official hosted or remote MCP server was found for PostEx; this tool list is
-  derived one-tool-per-operation from the OpenAPI definition as a starting
-  point.
+description: Candidate MCP server for the PostEx merchant Order Integration API. No official hosted or
+  remote MCP server was found for PostEx; this tool list is derived one-tool-per-operation from the OpenAPI
+  definition as a starting point.
 server:
   name: postex
   transport: http
 tools:
-  - name: create_order
-    description: Book a new shipment order (v3).
-    source_operation: openapi/postex-order-openapi.yml#createOrder
-  - name: track_order
-    description: Track a shipment by its PostEx tracking number.
-    source_operation: openapi/postex-order-openapi.yml#trackOrder
-  - name: get_unbooked_orders
-    description: List orders created but not yet booked.
-    source_operation: openapi/postex-order-openapi.yml#getUnbookedOrders
-  - name: get_merchant_address
-    description: List the merchant's registered pickup/return addresses.
-    source_operation: openapi/postex-order-openapi.yml#getMerchantAddress
-  - name: get_operational_city
-    description: List the cities PostEx delivers to (v2).
-    source_operation: openapi/postex-order-openapi.yml#getOperationalCityV2
+- name: create_order
+  description: Book a new shipment order (v3).
+  source_operation: openapi/postex-order-openapi.yml#createOrder
+- name: track_order
+  description: Track a shipment by its PostEx tracking number.
+  source_operation: openapi/postex-order-openapi.yml#trackOrder
+- name: get_unbooked_orders
+  description: List orders created but not yet booked.
+  source_operation: openapi/postex-order-openapi.yml#getUnbookedOrders
+- name: get_merchant_address
+  description: List the merchant's registered pickup/return addresses.
+  source_operation: openapi/postex-order-openapi.yml#getMerchantAddress
+- name: get_operational_city
+  description: List the cities PostEx delivers to (v2).
+  source_operation: openapi/postex-order-openapi.yml#getOperationalCityV2
+deployment:
+  mode: none
+  verified: derived
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census

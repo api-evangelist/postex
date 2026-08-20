@@ -37,6 +37,17 @@ modified: '2026-07-20'
 tags:
 - Company
 - Logistics
+- Couriers
+- Shipping
+- E-Commerce
+- Fulfillment
+- Cash on Delivery
+- Payments
+- Fintech
+- Pakistan
+tags_raw:
+- Company
+- Logistics
 - Courier
 - Shipping
 - E-commerce
@@ -52,6 +63,8 @@ apis:
   humanURL: https://postex.pk
   baseURL: https://api.postex.pk/services/integration/api/order
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI

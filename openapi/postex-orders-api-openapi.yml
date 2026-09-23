@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: PostEx Merchant Order Integration Orders API
-  description: PostEx is a Pakistani e-commerce logistics and courier platform offering cash-on-delivery fulfilment with instant upfront payments. This OpenAPI definition describes PostEx's merchant Order Integration API, used by merchants and order-management systems to book shipments, look up operational cities, retrieve their registered pickup addresses, track parcels, and list orders not yet booked. Every operation authenticates with a merchant API token supplied in the `token` request header (issued from the PostEx merchant dashboard). This definition was constructed by live-probing the production host https://api.postex.pk — each path below was confirmed to exist (returns HTTP 400 "Missing request header 'token'" when called without credentials rather than 404). Request and response bodies are intentionally left as generic objects where they could not be verified without an authenticated token, to avoid fabricating field-level schema.
+  description: PostEx is a Pakistani e-commerce logistics and courier platform offering cash-on-delivery fulfilment with instant upfront payments.
   version: '3'
   x-api-evangelist-note: Servers, paths, auth model, and error envelope verified against the live api.postex.pk host on 2026-07-20. No provider-published OpenAPI/Swagger was found (/v3/api-docs, /swagger-ui.html both 404).
   contact:

@@ -103,6 +103,13 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
+  responses:
+    BadRequest:
+      description: Bad request (e.g. missing `token` header or invalid parameters)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -124,13 +131,6 @@ components:
         path:
           type: string
           example: /api/order/v1/get-merchant-address
-  responses:
-    BadRequest:
-      description: Bad request (e.g. missing `token` header or invalid parameters)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     merchantToken:
       type: apiKey

@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/postex/integrations
+- https://n8n.io/integrations/postex/
+- https://composio.dev/toolkits/postex
+- https://monid.ai/tools/postex
+checked:
+- https://composio.dev/toolkits/postex
+- https://monid.ai/tools/postex
+- https://n8n.io/integrations/postex/
+- https://zapier.com/apps/postex/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
